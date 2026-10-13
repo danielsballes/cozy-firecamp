@@ -1,4 +1,4 @@
-# Fogata Retro
+# Cozy Firecamp
 
 A 3D room for the team's retrospectives: a campfire in the forest, 10 chairs and a projection screen for screen sharing. Each attendee is a character; with the camera on, their head is a monitor showing their video, and with the camera off it is a head that moves its mouth when they talk.
 

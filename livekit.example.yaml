@@ -25,4 +25,4 @@ rtc:
 # Your own key and secret. Don't use the test ones (devkey / secret) with open ports:
 # anyone who knows them could forge tokens for your rooms.
 keys:
-  fogata: change-this-to-a-long-secret-of-32-characters-or-more
+  firecamp: change-this-to-a-long-secret-of-32-characters-or-more

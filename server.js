@@ -131,6 +131,6 @@ if (DEV) {
 }
 
 server.listen(PORT, () => {
-  console.log(`Campfire ready at http://localhost:${PORT}`);
+  console.log(`Cozy Firecamp ready at http://localhost:${PORT}`);
   if (!configured) console.log('LiveKit is not configured: the app opens in "no call" mode. See the README to enable it.');
 });

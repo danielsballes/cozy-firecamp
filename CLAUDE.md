@@ -1,4 +1,4 @@
-# Fogata Retro
+# Cozy Firecamp
 
 A 3D room in the browser for a team's retrospectives: a campfire in the forest, 10 chairs and a projection screen. Each attendee is a character; with the camera on, their head is a monitor showing their video, and with the camera off it is a head with a beanie that moves its mouth when they talk. Voice, video and screen sharing go through LiveKit.
 

@@ -208,9 +208,9 @@ async function join(offline) {
         return;
       }
       const u = new URL(location.href); u.searchParams.set('room', room); history.replaceState(null, '', u);
-      remember('fogata.room', room);
+      remember('cozy-firecamp.room', room);
     }
-    remember('fogata.name', name);
+    remember('cozy-firecamp.name', name);
     state.picked = -1;
     if (failures.length) {
       const what = failures.map((f) => (f === 'mic' ? 'the microphone' : 'the camera')).join(' or ');
@@ -271,8 +271,8 @@ $('bCloseBig').addEventListener('click', closeBig);
 document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && state.big) closeBig(); });
 
 /* ---------- startup ---------- */
-$('name').value = recall('fogata.name').slice(0, 24);
-$('room').value = cleanRoom(new URLSearchParams(location.search).get('room')) || recall('fogata.room') || ('retro-' + Math.floor(1000 + Math.random() * 9000));
+$('name').value = recall('cozy-firecamp.name').slice(0, 24);
+$('room').value = cleanRoom(new URLSearchParams(location.search).get('room')) || recall('cozy-firecamp.room') || ('retro-' + Math.floor(1000 + Math.random() * 9000));
 if (window.innerWidth < 640) { $('panelToggle').setAttribute('aria-expanded', 'false'); $('panelBody').hidden = true; }
 render();
 
