@@ -1,0 +1,28 @@
+# NO LONGER USED: the project ended up on LiveKit Cloud and this file can be deleted.
+# It was the configuration for hosting LiveKit on the computer itself with open ports.
+# The app no longer includes the bridge to a local LiveKit, so this alone is not enough.
+#
+# 1. Copy this file to "livekit.yaml" and change the key and secret.
+# 2. On your router, forward ports 7882 (UDP) and 7881 (TCP) to this computer.
+# 3. Start LiveKit with:   livekit-server --config livekit.yaml
+# 4. Put the same key and secret in the app's ".env", with LIVEKIT_URL=ws://localhost:7880
+#
+# Port 7880 is NOT opened on the router: the app reaches it through localhost and acts as a bridge.
+
+port: 7880
+
+rtc:
+  # Voice and video travel through these. They are the two ports opened on the router.
+  udp_port: 7882
+  tcp_port: 7881
+  # Discovers your network's public address and announces it to whoever connects.
+  use_external_ip: true
+  # Also announces the internal address, for people on your same network (you included).
+  advertise_internal_ip: true
+  # Home routers usually don't let the computer call itself through the public address.
+  skip_external_ip_validation: true
+
+# Your own key and secret. Don't use the test ones (devkey / secret) with open ports:
+# anyone who knows them could forge tokens for your rooms.
+keys:
+  firecamp: change-this-to-a-long-secret-of-32-characters-or-more

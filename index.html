@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <title>Cozy Firecamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+<div class="app" id="app">
+  <canvas id="scene" tabindex="0" aria-label="3D campfire scene. Drag to rotate the camera and scroll to zoom in."></canvas>
+
+  <header class="top">
+    <div class="brand">
+      <h1>Cozy Firecamp</h1>
+      <p class="sub">Team retro</p>
+      <p class="room" id="roomInfo" hidden>
+        <span>Room <strong id="roomName"></strong></span>
+        <button type="button" class="link" id="bLink">Copy link</button>
+      </p>
+      <p class="perf" id="perf"></p>
+    </div>
+    <section class="panel" aria-label="People in the room">
+      <button type="button" class="panel-head" id="panelToggle" aria-expanded="true" aria-controls="panelBody">
+        <span>By the fire</span><span class="count" id="count">0/10</span>
+      </button>
+      <div class="panel-body" id="panelBody">
+        <div class="seatmap" id="seatmap">
+          <div class="screen"></div><div class="screen-label">Screen</div><div class="fire"></div>
+        </div>
+        <p class="help" id="seatHelp"></p>
+        <ul class="roster" id="roster"></ul>
+        <label class="switch" for="eco"><input type="checkbox" id="eco"> Power saver (30 fps)</label>
+      </div>
+    </section>
+  </header>
+
+  <footer class="bottom">
+    <form class="join" id="join" autocomplete="off">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" maxlength="24" placeholder="e.g. Laura" required>
+      </div>
+      <div class="field">
+        <label for="room">Room</label>
+        <input id="room" name="room" type="text" maxlength="40" placeholder="team-retro" required>
+      </div>
+      <div class="checks">
+        <label class="switch" for="withMic"><input type="checkbox" id="withMic" checked> Microphone</label>
+        <label class="switch" for="withCam"><input type="checkbox" id="withCam" checked> Camera</label>
+      </div>
+      <button class="go" id="go" type="submit">Sit by the fire</button>
+      <button class="link" id="bOffline" type="button" hidden>Join without a call</button>
+    </form>
+
+    <div class="dock" id="dock" hidden>
+      <button type="button" class="ctl" id="bMic" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/><path class="slash" d="M4 4l16 16"/></svg>
+        <span>Microphone</span>
+      </button>
+      <button type="button" class="ctl" id="bCam" aria-pressed="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M15 10l6-3v10l-6-3z"/><path class="slash" d="M4 4l16 16"/></svg>
+        <span>Camera</span>
+      </button>
+      <button type="button" class="ctl" id="bShare" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>
+        <span>Share screen</span>
+      </button>
+      <button type="button" class="ctl" id="bBig" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+        <span>View screen full size</span>
+      </button>
+      <button type="button" class="ctl" id="bView" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></svg>
+        <span>View from my seat</span>
+      </button>
+      <button type="button" class="ctl leave" id="bLeave">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5M14 8l4 4-4 4M18 12H9"/></svg>
+        <span>Leave</span>
+      </button>
+    </div>
+    <button type="button" class="go" id="bSound" hidden>Turn on sound</button>
+    <p class="note" id="note" role="status"></p>
+  </footer>
+
+  <div class="big" id="big" hidden>
+    <div class="big-bar">
+      <span id="bigTitle"></span>
+      <button type="button" class="go" id="bCloseBig">Back to the fire</button>
+    </div>
+    <div class="big-video" id="bigVideo"></div>
+  </div>
+</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
