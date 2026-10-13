@@ -79,12 +79,12 @@ Tested:
 - The scene, the characters and video as a texture, in the browser.
 - The page flows with a simulated call: joining, full room, not configured, denied permissions, sharing, changing seats, leaving and dropped connection.
 - The real call with LiveKit Cloud: the owner confirmed joining the same room from several devices.
+- The current version (new API routes `/api/join` and `/api/status`, `seat` metadata field, `?room=` URL parameter) in a live call: the owner confirmed it works (2026-10-13).
 
 Not confirmed:
 
 - Changing seats during a real call.
 - A full session with the team's 7 or 8 people.
-- The whole app after translating it to English (2026-10-13): identifiers, API routes (`/api/join`, `/api/status`), the metadata field (`seat`) and the URL parameter (`?room=`) all changed.
 
 Pending:
 
